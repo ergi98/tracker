@@ -1,0 +1,70 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+// model Ingredient {
+//   id        String    @id @default(auto()) @map("_id") @db.ObjectId
+//   name      String
+//   nutrition Nutrition
+//   // Relationships
+//   foods     Food[]    @relation(fields: [foodIds], references: [id])
+//   foodIds   String[]  @db.ObjectId
+// }
+
+// model Food {
+//   id            String       @id @default(auto()) @map("_id") @db.ObjectId
+//   name          String
+//   nutrition     Nutrition
+//   // Relationships
+//   ingredients   Ingredient[] @relation(fields: [ingredientIds], references: [id])
+//   ingredientIds String[]     @db.ObjectId
+//   meals         Meal[]       @relation(fields: [mealIds], references: [id])
+//   mealIds       String[]     @db.ObjectId
+// }
+
+// model Meal {
+//   id      String   @id @default(auto()) @map("_id") @db.ObjectId
+//   name    String
+//   // Relationships
+//   foods   Food[]   @relation(fields: [foodIds], references: [id])
+//   foodIds String[] @db.ObjectId
+// }
+
+// type Nutrition {
+//   unit     String
+//   quantity String
+//   calories Int
+//   protein  Int
+//   carbs    Int
+//   fat      Int
+// }
+
+model Progress {
+  id           String      @id @default(auto()) @map("_id") @db.ObjectId
+  date         String
+  weight       Int
+  notes        String      @default("")
+  measurements Measurement
+  photos       String[]
+}
+
+type Measurement {
+  leftArm    Float
+  rightArm   Float
+  back       Float
+  chest      Float
+  waist      Float
+  hips       Float
+  leftThigh  Float
+  rightThigh Float
+  leftCalve  Float
+  rightCalve Float
+}

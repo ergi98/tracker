@@ -49,7 +49,7 @@ datasource db {
 
 model Progress {
   id           String      @id @default(auto()) @map("_id") @db.ObjectId
-  date         String
+  date         DateTime
   weight       Int
   notes        String      @default("")
   measurements Measurement

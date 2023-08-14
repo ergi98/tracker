@@ -149,13 +149,16 @@ export default class LineGraph<T> {
   };
 
   #getYAxis = () => {
-    this.privateYAxis.moveTo(15, this.margins[0]);
-    this.privateYAxis.lineTo(15, this.height - this.margins[2] + 10);
+    this.privateYAxis.moveTo(this.margins[3] / 2, this.margins[0]);
+    this.privateYAxis.lineTo(
+      this.margins[3] / 2,
+      this.height - this.margins[2]
+    );
   };
 
   #getXAxis = () => {
     this.privateYAxis.moveTo(
-      this.margins[3] - 20,
+      this.margins[3],
       this.height - this.margins[0]
     );
     this.privateYAxis.lineTo(this.width, this.height - this.margins[0]);

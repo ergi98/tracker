@@ -17,6 +17,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { useFonts } from "expo-font";
 
 // Components
+import Progress from "@/screens/Progress";
 import Dashboard from "@/screens/Dashboard";
 
 const Tab = createBottomTabNavigator();
@@ -74,6 +75,7 @@ export default function App() {
                 }}
                 initialRouteName="Dashboard"
               >
+                <Tab.Screen name="Progress" component={Progress} />
                 <Tab.Screen name="Dashboard" component={Dashboard} />
               </Tab.Navigator>
             </NavigationContainer>
